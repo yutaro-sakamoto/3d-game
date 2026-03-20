@@ -13,6 +13,7 @@
 - `npm run format:check` — フォーマットチェックのみ
 - `npm run docs` — typedocでAPIドキュメント生成 (`docs/`へ出力)
 - `npm run check` — 全静的解析 + ビルドを一括実行
+- `npm run test` — テスト実行 (`vitest run`)
 
 ## Code change workflow
 
@@ -48,8 +49,9 @@ push / PR で以下を実行:
 1. TypeScript型チェック (`tsc --noEmit`)
 2. ESLint (循環的複雑度チェック含む)
 3. Prettierフォーマットチェック
-4. Viteビルド
-5. typedocドキュメント生成
+4. テスト (`vitest run`)
+5. Viteビルド
+6. typedocドキュメント生成
 
 ## Project structure
 
