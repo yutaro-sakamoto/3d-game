@@ -15,14 +15,7 @@ const canvas = document.getElementById("renderCanvas") as HTMLCanvasElement;
 const engine = new Engine(canvas, true);
 const scene = new Scene(engine);
 
-const camera = new ArcRotateCamera(
-  "camera",
-  Math.PI / 4,
-  Math.PI / 3,
-  10,
-  Vector3.Zero(),
-  scene
-);
+const camera = new ArcRotateCamera("camera", Math.PI / 4, Math.PI / 3, 10, Vector3.Zero(), scene);
 camera.attachControl(canvas, true);
 
 new HemisphericLight("light", new Vector3(0, 1, 0), scene);
