@@ -12,6 +12,23 @@
 - `npm run format` — Prettierでフォーマット適用
 - `npm run format:check` — フォーマットチェックのみ
 - `npm run docs` — typedocでAPIドキュメント生成 (`docs/`へ出力)
+- `npm run check` — 全静的解析 + ビルドを一括実行
+
+## Code change workflow
+
+コードを変更したら、以下の手順を実行すること:
+
+1. `npm run check` を実行し、全チェックがパスすることを確認する
+   - TypeScript型チェック (`tsc --noEmit`)
+   - ESLint (循環的複雑度チェック含む)
+   - Prettierフォーマットチェック
+   - Viteビルド
+   - 問題があればコードを修正し、パスするまで繰り返す
+2. `code-reviewer` サブエージェントを起動してコードレビューを実施する
+   - 指摘があればコードを修正し、再度レビューする
+   - 指摘が0になるまで修正→レビューを繰り返す
+   - レビュー対応で変更を加えたら、`npm run check` を再実行して静的解析がパスすることを確認する。問題があれば修正する
+3. `doc-sync-updater` サブエージェントを起動してドキュメントの整合性を確認・更新する
 
 ## Code style
 

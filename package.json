@@ -10,7 +10,8 @@
     "lint": "eslint src/",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "check": "tsc --noEmit && eslint src/ && prettier --check . && vite build"
   },
   "dependencies": {
     "@babylonjs/core": "^7.0.0"
